@@ -1,6 +1,5 @@
 {
 	"recommendations": [
-		"hoovercj.vscode-ghc-mod",
 		"mattn.Runner",
 		"justusadam.language-haskell"
 	]
