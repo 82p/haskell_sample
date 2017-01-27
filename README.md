@@ -6,25 +6,6 @@ install [VSCode](https://code.visualstudio.com/)
 
 install [stack](https://github.com/commercialhaskell/stack/releases/)
 
-## add Path to ghc to your system
-
-you can find path to ghc at last line of following command
-
-```bash
-stack path
-//
-//
-ghc-paths: %userprofile%\AppData\Local\Programs\stack\x86_64-windows
-```
-
-and add to path for your pc 
-
-```
-%userprofile%\AppData\Local\Programs\stack\x86_64-windows\ghc-ghc_version*bin
-``` 
-
-*see your own folder
-
 ## Open this project in VSCode
 
 right click this folder and click "Open with Code" or open from VSCode menu `file` > `open`.
@@ -41,6 +22,11 @@ open `/app/Main.hs` on VSCode and run compile command with runner `ctl`+`shift`+
 I only trace this article.
 
 http://azaika.hateblo.jp/entry/2015/12/19/151554
+
+I change runhaskell.bat to use stack runhaskell.
+this bat file only do `runhaskell x.hs`!
+
+it's amazing!!
 
 haskell sample is written in here
 
