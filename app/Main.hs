@@ -3,7 +3,7 @@ add 1 = 1
 add x = x +  add (x - 1)
 
 --リストの操作
-first (x:_) = x;
+-- first (x:_) = x;
 
 --リスト関数の再定義
 --length' [] = 0
@@ -28,7 +28,7 @@ first (x:_) = x;
 
 main = do
  print $ add 5
- print $ first [1..5]
+-- print $ first [1..5]
 -- print $ length' [1..5]
 -- print $ sum' [1..5]
 -- print $ take' 3 [1..5]
