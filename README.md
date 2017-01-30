@@ -19,7 +19,7 @@ open `/app/Main.hs` on VSCode and run compile command with runner `ctl`+`shift`+
 
 # Detail of this project
 
-I only trace this article.
+## Refferences
 
 http://azaika.hateblo.jp/entry/2015/12/19/151554
 

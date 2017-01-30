@@ -1,30 +1,42 @@
+import Data.Char
 --it's first time recursive function
 series 1 = 1
 series x = x +  series (x - 1)
 
-
-{--this is comment
-
-TODO LIST
--- haskell list
 first (x:_) = x;
---Redefine list functions
-length'
-sum' 
-take' 
-drop' 
-reverse' 
+
+length' [] = 0
+length' (_:xs) = 1 + length' xs
+
+sum' [] = 0
+sum' (x:xs) = x + sum' xs
+
+take' 0 (_:_) = []
+take' n (x:xs) = x:take (n-1) xs 
+
+drop' 0 l = l
+drop' n (_:xs) =drop' (n-1) xs
+
+reverse' (x:xs) = reverse' xs ++[x]
+
 --use where
 addsub x y = (add,sub)
---math practice
-A straight line passing through (p,q)
-and cross at right angles the line ax + by = c.
-Find the intersection of thease lines. 
--- prePoint p q a b c = (x,y)
---}
+    where add = x + y
+          sub = x - y
+
+rot13 x = char code
+    where code
+          | old <= (48 -13) = old + 13
+          | otherwise code = old + 13 -48
+          old = ord x
+          
 
 main = do
- print $ series 5
+    print $ series 5
+    print $ ord 'A'
+    print $ chr 65
+    print rot13 'A'
+    print rot13 (rot13 A)
 
 -- print $ first [1..5]
 -- print $ length' [1..5]
