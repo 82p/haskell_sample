@@ -24,20 +24,40 @@ addsub x y = (add,sub)
     where add = x + y
           sub = x - y
 
-rot13 x = char code
-    where code
-          | old <= (48 -13) = old + 13
-          | otherwise code = old + 13 -48
-          old = ord x
-          
+--rot13
+addroop num add _max 
+    | (num + add) >= _max = num + add - _max
+    | otherwise = num + add
+
+base ch
+    | (ord ch) > (ord 'Z') =  (ord 'a')
+    | otherwise = ord 'A'
+
+rot13ch ch = chr code
+    where code = (addroop old 13 26) + baseChar
+          old = ord ch - baseChar
+          baseChar = base ch
+
+rot13 [] = []
+rot13 (x:xs) = (rot13ch x ): rot13 xs
+
+
+
 
 main = do
     print $ series 5
     print $ ord 'A'
+    print $ ord 'z'
+    print $ ord 'Z'
     print $ chr 65
-    print rot13 'A'
-    print rot13 (rot13 A)
-
+    print $ chr 78
+    print $ chr 90
+    print $ addroop 10 10 20
+    print $ rot13ch 'A'
+    print $ rot13ch (rot13ch 'A')
+    print $ rot13ch 'a'
+    print $ rot13 "HelloHaskell"
+    print $ rot13 (rot13 "HelloHaskell")
 -- print $ first [1..5]
 -- print $ length' [1..5]
 -- print $ sum' [1..5]
