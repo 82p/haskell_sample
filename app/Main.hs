@@ -25,24 +25,24 @@ addsub x y = (add,sub)
           sub = x - y
 
 --rot13
+--add and roop in max number
 addroop num add _max 
     | (num + add) >= _max = num + add - _max
     | otherwise = num + add
-
+--base char code for a-Z
 base ch
     | (ord ch) > (ord 'Z') =  (ord 'a')
     | otherwise = ord 'A'
-
+--ROT13 for charactor z-Z
 rot13ch ch = chr code
     where code = (addroop old 13 26) + baseChar
           old = ord ch - baseChar
           baseChar = base ch
-
+--ROT13 function
 rot13 [] = []
 rot13 (x:xs) = (rot13ch x ): rot13 xs
 
-
-
+--bubble sort
 
 main = do
     print $ series 5
