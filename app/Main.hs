@@ -25,8 +25,8 @@ addsub x y = (add,sub)
           sub = x - y
 
 --rot13
---add and roop in max number
-addroop num add _max 
+--add and loop in max number
+addloop num add _max 
     | (num + add) >= _max = num + add - _max
     | otherwise = num + add
 --base char code for a-Z
@@ -35,16 +35,24 @@ base ch
     | otherwise = ord 'A'
 --ROT13 for charactor z-Z
 rot13ch ch = chr code
-    where code = (addroop old 13 26) + baseChar
+    where code = (addloop old 13 26) + baseChar
           old = ord ch - baseChar
           baseChar = base ch
+
 --ROT13 function
 rot13 [] = []
 rot13 (x:xs) = (rot13ch x ): rot13 xs
 
---bubble sort
+
+qsort []     = []
+qsort (n:xs) = qsort lt ++ [n] ++ qsort gteq
+    where
+        lt   = [x | x <- xs, x <  n]
+        gteq = [x | x <- xs, x >= n]
+
 
 main = do
+    print $ qsort [4, 6, 9, 8, 3, 5, 1, 7, 2]
     print $ series 5
     print $ ord 'A'
     print $ ord 'z'
@@ -52,7 +60,7 @@ main = do
     print $ chr 65
     print $ chr 78
     print $ chr 90
-    print $ addroop 10 10 20
+    print $ addloop 10 10 20
     print $ rot13ch 'A'
     print $ rot13ch (rot13ch 'A')
     print $ rot13ch 'a'
