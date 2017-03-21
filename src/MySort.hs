@@ -44,5 +44,23 @@ badsort (x:xs)
     where
         (y:ys) = trace (show x ++ ":" ++ show xs) badsort xs
 
+marge [] [] = []
+marge xs [] = xs
+marge [] ys = ys
+marge (x:xs) (y:ys)
+    | x < y = x:marge xs (y:ys)
+    | otherwise = y:marge (x:xs) ys
+
+-- --長さ2の配列に分割する
+-- split [] = [[]]	--どうやら多重配列はこのようには使えないらしい？
+-- split [x] = [[x]]
+-- split [x,y] = [[x,y]]
+-- split (x:y:zs)  = [(x:y)]　++ split zs
+
+
+msort list = marge xs ys
+    where xs = marge x1 x2
 main = do
     traceIO $ show $ badsort [3,5,7,2,4,6]
+    print $ marge [1,3,4,6] [2,3,6]
+    print $ split [1,2,3,4,5,6,7]
